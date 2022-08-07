@@ -1,9 +1,14 @@
-from typing import Union
 from fastapi import FastAPI
 
-app = FastAPI()
+#from app.ping.api import ping_pong
+import app.ping.api as ping
+#app = FastAPI()
 
+#app.include_router(ping_pong.router)
 
-@app.get("/ping")
-def ping_pong():
-    return {"message": "pong"}
+def create_app():
+    app = FastAPI()
+    app.include_router(ping.router)
+    return app
+
+app = create_app()
