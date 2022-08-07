@@ -1,14 +1,9 @@
 import pytest
 import json
-from starlette.testclient import TestClient
-
-from app.main import app
-
-client = TestClient(app)
 
 
-def test_ping_pong_status():
-    response = client.get(
+def test_ping_pong_status(test_app):
+    response = test_app.get(
         "/ping",
         data=json.dumps({"message": "ping"})
     )
