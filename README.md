@@ -1,0 +1,7 @@
+# FastApi project
+
+## Run project
+
+```
+
+```
